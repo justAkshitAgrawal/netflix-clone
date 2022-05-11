@@ -17,8 +17,6 @@ function Plans({ products }: Props) {
   const [selectedPlan, setSelectedPlan] = useState<Product | null>(products[2])
   const [isBillingLoading, setBillingLoading] = useState(false)
 
-  console.log(products)
-
   const subscribeToPlan = () => {
     if (!user) return
 
@@ -54,6 +52,7 @@ function Plans({ products }: Props) {
         <h1 className="mb-3 text-3xl font-medium">
           Choose the plan that's right for you
         </h1>
+
         <ul>
           <li className="flex items-center text-lg gap-x-2">
             <CheckIcon className="h-7 w-7 text-[#E50914]" /> Watch all you want.
@@ -85,6 +84,14 @@ function Plans({ products }: Props) {
           </div>
 
           <Table products={products} selectedPlan={selectedPlan} />
+
+          <div className="flex w-full items-end justify-center p-2 text-sm font-light text-[gray]">
+            Card No:
+            <span className="px-1 font-bold underline">
+              4242 4242 4242 4242
+            </span>
+            for signup.
+          </div>
 
           <button
             disabled={!selectedPlan || isBillingLoading}
